@@ -1,0 +1,22 @@
+.Container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+  flex-flow: row wrap;
+  border: solid black 1px;
+  width:30%;
+}
+
+
+
+@media only screen and (max-width : 767px) {
+    .Container{
+        width:70%;
+    } 
+}
+
+@media only screen and (max-width : 1600px) and (min-width:800px) {
+    .Container{
+        width:40%;
+    } 
+}

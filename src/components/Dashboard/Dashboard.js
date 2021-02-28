@@ -1,14 +1,15 @@
-import React, { useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { getCards, getFlippedCards, getCardsMatched } from '../../redux/selectors/cards';
 import Card from '../Card/Card';
 import { FlipCard, MatchFound, UnFlipCards } from '../../redux/actions/cards';
 import { IncrementAttempts } from '../../redux/actions/score'
-import './Dashboard.css';
+import styles from './Dashboard.module.css';
+import { useHistory } from "react-router-dom";
 
 
 const Dashboard = () => {
+  const history = useHistory();
   const dispatch = useDispatch()
   const cards = useSelector(getCards);
   const flippedCards = useSelector(getFlippedCards);
@@ -24,7 +25,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (flippedCards.length > 1) {
       dispatch(IncrementAttempts())
-      if (flippedCards[0].name === flippedCards[1].name) {
+      if (flippedCards[0].color === flippedCards[1].color) {
         return dispatch(MatchFound())
       }
       setTimeout(() => {
@@ -34,15 +35,24 @@ const Dashboard = () => {
 
   }, [flippedCards.length])
 
+  useEffect(() => {
+    if (matchedCards.length === cards.length) {
+      setTimeout(() => {
+        history.push('/game-over');
+      }, 1000)
+    }
+  }, [matchedCards.length])
+
 
   return (
-    <div className="Container">
+    <div className={styles.Container}>
       {cards.map(card => {
         return (
           <Card
             id={card.id}
-            name={card.name}
+            color={card.color}
             isFlipped={card.isFlipped}
+            matched={card.matchFound}
             flipCard={flipCardHelper}
             key={card.id}
           />

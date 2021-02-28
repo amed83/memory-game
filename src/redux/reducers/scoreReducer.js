@@ -1,4 +1,4 @@
-import { INCREMENT_ATTEMPTS } from "../actions/actionTypes"
+import { INCREMENT_ATTEMPTS, RESET_GAME } from "../actions/actionTypes"
 
 
 const INITIAL_STATE = {
@@ -11,6 +11,10 @@ const ScoreReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         attempts: state.attempts + 1
+      }
+    case RESET_GAME:
+      return {
+        ...INITIAL_STATE
       }
   }
   return state

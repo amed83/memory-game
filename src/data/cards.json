@@ -2,15 +2,23 @@
   "data": [
     {
       "id": "1",
-      "name": "red"
+      "color": "red"
     },
     {
       "id": "2",
-      "name": "yellow"
+      "color": "yellow"
     },
     {
       "id": "3",
-      "name": "pink"
+      "color": "pink"
+    },
+    {
+      "id": "4",
+      "color": "blue"
+    },
+    {
+      "id": "5",
+      "color": "orange"
     }
   ]
 }

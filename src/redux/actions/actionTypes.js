@@ -2,3 +2,4 @@ export const FLIP_CARD = 'FLIP_CARD';
 export const UNFLIP_CARDS = 'UNFLIP_CARDS';
 export const MATCH_FOUND = 'MATCH_FOUND';
 export const INCREMENT_ATTEMPTS = 'INCREMENT_ATTEMPTS';
+export const RESET_GAME = 'RESET_GAME';

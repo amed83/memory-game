@@ -1,13 +1,15 @@
 import cards from '../../data/cards.json';
-import { FLIP_CARD, MATCH_FOUND, UNFLIP_CARDS } from '../actions/actionTypes';
+import { FLIP_CARD, MATCH_FOUND, UNFLIP_CARDS, RESET_GAME } from '../actions/actionTypes';
+import shuffle from 'knuth-shuffle';
+
 
 const loadCards = cards.data.flatMap((card => {
   return [card, { ...card, id: `${card.id}_match` }]
 }))
 
+const shuffleCards = (cards) => shuffle.knuthShuffle(cards)
 
-
-export const INITIAL_STATE = { cards: [...loadCards], matchesFound: 0 }
+export const INITIAL_STATE = { cards: shuffleCards(loadCards), matchesFound: 0 }
 
 const CardsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -57,6 +59,10 @@ const CardsReducer = (state = INITIAL_STATE, action) => {
             ...card
           }
         })
+      }
+    case RESET_GAME:
+      return {
+        ...INITIAL_STATE,
       }
     default:
       return state

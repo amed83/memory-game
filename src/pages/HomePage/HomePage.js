@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { StyledButton } from '../../shared/Button/Button';
 
 const HomePage = () => {
 
   return (
     <div>
       <h2>Welcome to memory game</h2>
-      <Link to="/play">
+      <StyledButton to="/play">
         Play
-      </Link>
+      </StyledButton>
     </div>
   )
 

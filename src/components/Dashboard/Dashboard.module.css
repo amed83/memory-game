@@ -1,13 +1,12 @@
 .Container{
   display: flex;
   justify-content: space-around;
-  margin-top: 100px;
   flex-flow: row wrap;
-  border: solid black 1px;
+  background: linear-gradient(to top, #e1f6ff, #6DD5FA, #2980B9);
+  padding:10px;
+  border-radius:5px;
   width:30%;
 }
-
-
 
 @media only screen and (max-width : 767px) {
     .Container{

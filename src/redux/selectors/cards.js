@@ -14,3 +14,8 @@ export const getCardsMatched = createSelector(
   getCards,
   cards => cards.filter(card => card.matchFound)
 )
+
+export const getNumberOfCards = createSelector(
+  getCards,
+  cards => cards.length
+)

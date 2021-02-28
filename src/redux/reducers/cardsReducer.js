@@ -47,7 +47,6 @@ const CardsReducer = (state = INITIAL_STATE, action) => {
     case MATCH_FOUND:
       return {
         ...state,
-        matchesFound: state.matchesFound + 1,
         cards: state.cards.map((card) => {
           if (card.isFlipped) {
             return {
